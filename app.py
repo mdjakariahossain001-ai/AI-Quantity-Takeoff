@@ -21,36 +21,88 @@ st.set_page_config(
 st.title("🏗️ AI Quantity Takeoff Assistant")
 
 st.write(
-    "LLM-based architectural drawing interpretation and quantity estimation"
+    "Capture a floor plan using mobile camera and generate AI-based quantity estimation."
 )
 
 
 # ---------------------------------
-# Function to load JSON
+# Mobile Camera / Upload Section
+# ---------------------------------
+
+st.header("📷 Capture Floor Plan")
+
+
+camera_image = st.camera_input(
+    "Take a photo of your floor plan"
+)
+
+
+uploaded_file = st.file_uploader(
+    "Or upload Floor Plan PDF/Image",
+    type=["png", "jpg", "jpeg", "pdf"]
+)
+
+
+
+if camera_image:
+
+    st.success("Floor plan captured successfully!")
+
+    st.image(
+        camera_image,
+        caption="Captured Floor Plan",
+        use_container_width=True
+    )
+
+
+elif uploaded_file:
+
+    st.success("Floor plan uploaded successfully!")
+
+    if uploaded_file.type != "application/pdf":
+
+        st.image(
+            uploaded_file,
+            caption="Uploaded Floor Plan",
+            use_container_width=True
+        )
+
+
+
+st.divider()
+
+
+
+# ---------------------------------
+# Load JSON Files
 # ---------------------------------
 
 def load_json(filename):
 
     if not os.path.exists(filename):
-        st.error(f"Missing file: {filename}")
+
+        st.error(
+            f"{filename} not found"
+        )
+
         st.stop()
 
+
     with open(filename, "r") as file:
+
         return json.load(file)
 
 
-
-# ---------------------------------
-# Load Data
-# ---------------------------------
 
 building_model = load_json(
     "Plan_001_Building_Model.json"
 )
 
+
 assumptions = load_json(
     "Construction_Assumptions.json"
 )
+
 
 quantity = load_json(
     "Quantity_Takeoff_Result.json"
@@ -91,6 +143,7 @@ st.write(
     "Unit System:",
     info["unit_system"]
 )
+
 
 st.write(
     "Drawing:",
@@ -141,55 +194,61 @@ rooms = building_model["rooms"]
 
 for room in rooms:
 
+
     with st.expander(
         f"{room['name']} - {room['unit']}"
     ):
 
+
         st.write(
             f"""
-            **Length:** {room['length_ft']} ft
+            Length: {room['length_ft']} ft
 
-            **Width:** {room['width_ft']} ft
+            Width: {room['width_ft']} ft
 
-            **Area:** {room['area_sqft']} sqft
+            Area: {room['area_sqft']} sqft
             """
         )
 
 
 
 # ---------------------------------
-# Quantity Takeoff Results
+# Quantity Results
 # ---------------------------------
 
 st.header("📊 Quantity Takeoff Result")
 
 
 
-# Floor Finish
+# Floor
 
 st.subheader("🟫 Floor Finish")
 
-floor_finish = quantity["floor_finish_takeoff"]
+
+floor_result = quantity["floor_finish_takeoff"]
 
 
 st.write(
     f"""
-    Base Floor Area:
-    {floor_finish['base_interior_floor_area_sqft']} sqft
+    Floor Area:
+
+    {floor_result['base_interior_floor_area_sqft']} sqft
 
 
     Wastage:
-    {floor_finish['wastage_factor_percent']} %
+
+    {floor_result['wastage_factor_percent']} %
 
 
-    Required Tile Quantity:
-    {floor_finish['total_tile_quantity_required_sqft']} sqft
+    Required Tile:
+
+    {floor_result['total_tile_quantity_required_sqft']} sqft
     """
 )
 
 
 
-# Brick Masonry
+# Brick
 
 st.subheader("🧱 Brick Masonry")
 
@@ -199,12 +258,12 @@ brick = quantity["brick_masonry_takeoff"]
 
 st.write(
     f"""
-    External Wall Volume:
+    External Wall:
 
     {brick['external_walls']['net_volume_cuft']} cubic ft
 
 
-    Internal Wall Volume:
+    Internal Wall:
 
     {brick['internal_walls']['net_volume_cuft']} cubic ft
 
@@ -219,7 +278,7 @@ st.write(
 
 # Painting
 
-st.subheader("🎨 Painting Quantity")
+st.subheader("🎨 Painting")
 
 
 paint = quantity["wall_painting_takeoff"]
@@ -227,12 +286,12 @@ paint = quantity["wall_painting_takeoff"]
 
 st.write(
     f"""
-    External Painting Area:
+    External Painting:
 
     {paint['external_painting_surface_one_face_sqft']['net_area_sqft']} sqft
 
 
-    Internal Painting Area:
+    Internal Painting:
 
     {paint['internal_painting_surface_sqft']['total_net_internal_painting_area_sqft']} sqft
     """
@@ -241,13 +300,13 @@ st.write(
 
 
 # ---------------------------------
-# Openings
+# Doors Windows
 # ---------------------------------
 
-st.header("🚪 Doors and Windows")
+st.header("🚪 Openings")
 
 
-openings = quantity["openings_summary"]
+opening = quantity["openings_summary"]
 
 
 col1, col2 = st.columns(2)
@@ -257,7 +316,7 @@ with col1:
 
     st.metric(
         "Doors",
-        openings["doors"]["count"]
+        opening["doors"]["count"]
     )
 
 
@@ -265,35 +324,8 @@ with col2:
 
     st.metric(
         "Windows",
-        openings["windows"]["count"]
+        opening["windows"]["count"]
     )
-
-
-
-# ---------------------------------
-# Structural Information
-# ---------------------------------
-
-st.header("🏗️ Structural Elements")
-
-
-structure = building_model["structural_elements"]
-
-
-st.write(
-    f"""
-    Columns:
-    {structure['columns']['count']}
-
-
-    Staircase:
-    {structure['staircase']['type']}
-
-
-    Lift:
-    {structure['lift']['area_sqft']} sqft
-    """
-)
 
 
 
@@ -304,16 +336,15 @@ st.write(
 st.header("⚙️ Construction Assumptions")
 
 
-st.json(assumptions)
+st.json(
+    assumptions
+)
 
 
-
-# ---------------------------------
-# Research Prototype Note
-# ---------------------------------
 
 st.divider()
 
+
 st.caption(
-    "Prototype: Mobile floor plan capture → LLM interpretation → Structured building model → Quantity takeoff"
+    "Prototype workflow: Mobile Capture → LLM Interpretation → Building Model → Quantity Takeoff"
 )
