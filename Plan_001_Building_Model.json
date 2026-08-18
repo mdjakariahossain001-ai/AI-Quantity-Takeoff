@@ -1,0 +1,252 @@
+{
+  "building_information": {
+    "project_name": "Proposed Five Storied Residential Building",
+    "location": "Khulna, Bangladesh",
+    "client": "Khulna University of Engineering and Technology",
+    "unit_system": "Imperial",
+    "sheet_referenced": "3rd Floor Plan (Sheet No. 04)"
+  },
+  "floor_information": {
+    "gross_footprint_area_sqft": 2133.83,
+    "total_dimensioned_interior_area_sqft": 1821.06,
+    "area_notes": "Gross footprint is calculated using overall building boundary dimensions (31'-0\" x 68'-10\"). The total dimensioned interior area is the sum of all individual rooms and the lift shaft, excluding unannotated spaces such as wall thicknesses, common lobby corridors, and the staircase."
+  },
+  "rooms": [
+    {
+      "name": "Drawing Room",
+      "unit": "North Unit",
+      "length_ft": 13.0,
+      "width_ft": 12.375,
+      "area_sqft": 160.88
+    },
+    {
+      "name": "Dining Room",
+      "unit": "North Unit",
+      "length_ft": 16.25,
+      "width_ft": 10.0,
+      "area_sqft": 162.50
+    },
+    {
+      "name": "Guest Bedroom",
+      "unit": "North Unit",
+      "length_ft": 11.167,
+      "width_ft": 10.0,
+      "area_sqft": 111.67
+    },
+    {
+      "name": "Master Bedroom",
+      "unit": "North Unit",
+      "length_ft": 11.583,
+      "width_ft": 12.5,
+      "area_sqft": 144.79
+    },
+    {
+      "name": "Child Bedroom",
+      "unit": "North Unit",
+      "length_ft": 11.583,
+      "width_ft": 11.417,
+      "area_sqft": 132.24
+    },
+    {
+      "name": "Kitchen",
+      "unit": "North Unit",
+      "length_ft": 11.583,
+      "width_ft": 7.583,
+      "area_sqft": 87.83
+    },
+    {
+      "name": "Toilet 1",
+      "unit": "North Unit",
+      "length_ft": 7.583,
+      "width_ft": 4.5,
+      "area_sqft": 34.12
+    },
+    {
+      "name": "Toilet 2",
+      "unit": "North Unit",
+      "length_ft": 6.167,
+      "width_ft": 4.167,
+      "area_sqft": 25.70
+    },
+    {
+      "name": "Veranda 1",
+      "unit": "North Unit",
+      "length_ft": 7.583,
+      "width_ft": 4.167,
+      "area_sqft": 31.60
+    },
+    {
+      "name": "Veranda 2",
+      "unit": "North Unit",
+      "length_ft": 5.917,
+      "width_ft": 4.083,
+      "area_sqft": 24.16
+    },
+    {
+      "name": "Drawing Room",
+      "unit": "South Unit",
+      "length_ft": 13.0,
+      "width_ft": 11.167,
+      "area_sqft": 145.17
+    },
+    {
+      "name": "Dining Room",
+      "unit": "South Unit",
+      "length_ft": 15.167,
+      "width_ft": 10.0,
+      "area_sqft": 151.67
+    },
+    {
+      "name": "Guest Bedroom",
+      "unit": "South Unit",
+      "length_ft": 11.167,
+      "width_ft": 10.0,
+      "area_sqft": 111.67
+    },
+    {
+      "name": "Master Bedroom",
+      "unit": "South Unit",
+      "length_ft": 12.5,
+      "width_ft": 10.333,
+      "area_sqft": 129.16
+    },
+    {
+      "name": "Child Bedroom",
+      "unit": "South Unit",
+      "length_ft": 11.25,
+      "width_ft": 10.5,
+      "area_sqft": 118.13
+    },
+    {
+      "name": "Kitchen",
+      "unit": "South Unit",
+      "length_ft": 11.667,
+      "width_ft": 7.583,
+      "area_sqft": 88.47
+    },
+    {
+      "name": "Toilet 1",
+      "unit": "South Unit",
+      "length_ft": 7.583,
+      "width_ft": 5.583,
+      "area_sqft": 42.34
+    },
+    {
+      "name": "Toilet 2",
+      "unit": "South Unit",
+      "length_ft": 6.167,
+      "width_ft": 5.167,
+      "area_sqft": 31.86
+    },
+    {
+      "name": "Veranda 1",
+      "unit": "South Unit",
+      "length_ft": 7.583,
+      "width_ft": 4.167,
+      "area_sqft": 31.60
+    },
+    {
+      "name": "Veranda 2",
+      "unit": "South Unit",
+      "length_ft": 5.917,
+      "width_ft": 4.167,
+      "area_sqft": 24.66
+    }
+  ],
+  "walls": {
+    "external_wall_segments": [
+      {
+        "location": "North Outer Wall (Main edge)",
+        "length_ft": 31.0
+      },
+      {
+        "location": "South Outer Wall (Main edge)",
+        "length_ft": 31.0
+      },
+      {
+        "location": "West Outer Wall (Segmented: 16'-10\", 17'-2\", 18'-6\", 15'-6\")",
+        "length_ft": 68.0
+      },
+      {
+        "location": "East Outer Wall (Segmented similar to West edge)",
+        "length_ft": 68.0
+      }
+    ],
+    "internal_partition_walls": [
+      {
+        "location": "North Unit - Guest Bed / Master Bed partition",
+        "length_ft": 11.167
+      },
+      {
+        "location": "North Unit - Guest Bed / Dining partition",
+        "length_ft": 10.0
+      },
+      {
+        "location": "North Unit - Master Bed / Child Bed partition",
+        "length_ft": 12.5
+      },
+      {
+        "location": "North Unit - Kitchen / Toilet partition",
+        "length_ft": 7.583
+      },
+      {
+        "location": "South Unit - Guest Bed / Dining partition",
+        "length_ft": 10.0
+      },
+      {
+        "location": "South Unit - Guest Bed / Master Bed partition",
+        "length_ft": 11.167
+      },
+      {
+        "location": "South Unit - Master Bed / Child Bed partition",
+        "length_ft": 12.5
+      },
+      {
+        "location": "South Unit - Kitchen / Toilet partition",
+        "length_ft": 7.583
+      }
+    ],
+    "total_annotated_wall_lengths": {
+      "external_ft": 198.0,
+      "internal_partition_ft": 82.5,
+      "combined_ft": 280.5,
+      "note": "Total internal wall length only represents partition lines explicitly dimensioned or directly inferable via adjacent room lengths. It does not represent the exhaustive physical wall centerline length."
+    }
+  },
+  "openings": {
+    "door_count": 19,
+    "window_count": 19
+  },
+  "structural_elements": {
+    "columns": {
+      "count": 24,
+      "dimensions": null,
+      "material": "Concrete (Reinforced)"
+    },
+    "staircase": {
+      "count": 1,
+      "type": "Dog-legged staircase",
+      "dimensions": null
+    },
+    "lift": {
+      "count": 1,
+      "length_ft": 6.167,
+      "width_ft": 5.0,
+      "area_sqft": 30.84
+    }
+  },
+  "missing_information_for_estimation": [
+    "Wall Thicknesses (internal partition walls and external perimeter walls are not dimensioned)",
+    "Vertical Heights (floor-to-floor height and clear ceiling height are not specified)",
+    "Door Schedule (individual opening widths, heights, frame details, and door leaf materials)",
+    "Window Schedule (individual opening widths, heights, sill heights, and framing profiles)",
+    "Structural Column Dimensions (cross-section dimensions are not annotated on this architectural plan)",
+    "Staircase Dimensions (riser, tread, and width values are not shown)",
+    "Finishes and Material Schedules (flooring types, wall paint, plaster specifications, and exterior cladding are not defined)"
+  ],
+  "assumptions": [
+    "The annotation '12'-42\"' for the North Unit Drawing room is a typographical error on the original drawing and has been modeled as 12'-4 1/2\" (12.375 ft).",
+    "Outer wall segments on East and West facades have been treated as parallel rectangular dimensions (totaling 68.0 ft based on grid lines) for gross calculations, omitting minor decorative projections.",
+    "Fractional measurements are converted to three-decimal feet and output areas to two-decimal precision."
+  ]
+}
